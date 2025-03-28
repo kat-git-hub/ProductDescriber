@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Product Writer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Description Generator</h1>
+        <form action="/generate" method="post">
+            <label for="product">Product Description:</label><br>
+            <textarea id="product" name="product" rows="4" required></textarea><br><br>
+            <label for="style">Description style:</label><br>
+            <select id="style" name="style" required>
+                <option value="friendly">Friendly</option>
+                <option value="official">Official</option>
+                <option value="technical">Technical</option>
+                <option value="selling">Selling</option>
+            </select><br><br>
+            <button type="submit">Generate</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Generated description:</h2>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
