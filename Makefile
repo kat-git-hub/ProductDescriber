@@ -1,5 +1,5 @@
 install:
-	poetry install
+	poetry install --no-root
 lint:
 	poetry run flake8 app --ignore=E501
 pre-commit:
