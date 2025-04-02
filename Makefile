@@ -1,7 +1,7 @@
 install:
 	poetry install --no-root
 lint:
-	poetry run flake8 app --ignore=E501
+	poetry run flake8 main.py --ignore=E501
 pre-commit:
 	poetry run pre-commit run --all-files
 runserver:
