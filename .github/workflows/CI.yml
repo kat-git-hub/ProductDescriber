@@ -8,22 +8,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        pip3 install poetry
-        make install
-    - name: Lint with flake8
-      run: |
-        make lint
-    - name: Test & publish code coverage
-    - uses: qltysh/qlty-action/coverage@main
-      with:
-        coverage-token: {{secrets.QLTY_COVERAGE_TOKEN}}
-        files: reports/lcov.info
-        coverageCommand: make test-coverage
-        debug: true
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          make install
+
+      - name: Lint with flake8
+        run: |
+          make lint
+
+      - name: Test & publish code coverage
+        uses: qltysh/qlty-action/coverage@main
+        with:
+          coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: reports/lcov.info
+          coverageCommand: make test-coverage
+          debug: true
