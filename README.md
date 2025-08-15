@@ -18,28 +18,36 @@ This is a simple AI-powered product description generator built with FastAPI and
 
 ## Tech Stack
 
-- Python 3.12
-- FastAPI
+- Python 3.10+
+- FastAPI + Uvicorn
 - Ollama (with `mistral` model)
 - HTML + CSS
-- Pytest for testing
+- Jinja2, python-dotenv
+- Pytest
 
 ---
 
 ## Setup & Run
-
-1. Install Ollama
-   → [https://ollama.com/download](https://ollama.com/download)
-
-2. Run Ollama server (in one terminal):
+1. Clone
 ```
-ollama serve
+git clone https://github.com/kat-git-hub/ProductDescriber.git
+cd ProductDescriber
 ```
-3.  Install dependencies with Poetry
+2.  Install dependencies with Poetry
 ```
 poetry install
 ```
+3. Ollama: start & pull a model
+```
+ollama serve                    # if not running as a service
+ollama pull mistral             # or: ollama pull llama3.2:3b
+ollama list                     # verify the model is available
+```
 4. Start the FastAPI app
+```
+poetry run uvicorn productdescriber.main:app --reload
+```
+or, if you use Makefile:
 ```
 make runserver
 ```

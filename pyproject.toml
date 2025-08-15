@@ -1,9 +1,12 @@
 [tool.poetry]
 name = "productdescriber"
-version = "0.1.0"
+version = "0.1.1"
 description = "AI ProductDescriber"
 authors = ["katiridium"]
 readme = "README.md"
+packages = [
+  { include = "productdescriber" },
+]
 
 
 [tool.poetry.dependencies]
