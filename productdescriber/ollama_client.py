@@ -29,6 +29,7 @@ async def generate(prompt: str) -> str:
             "num_predict": NUM_PREDICT,
             "num_ctx": NUM_CTX,
             "num_thread": NUM_THREAD,
+            "num_batch": 64,
         },
     }
     data = await run_in_threadpool(_post_generate, payload)
