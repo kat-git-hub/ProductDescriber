@@ -27,7 +27,3 @@ docker-run:
 	  $(IMAGE)
 docker-stop:
 	- docker stop $(CONTAINER)
-compose-up:
-	docker compose up --build
-compose-down:
-	docker compose down
